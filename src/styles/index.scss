@@ -25,26 +25,29 @@ html {
   display: grid;
   grid-template-columns: repeat(var(--columns), 220px);
   justify-content: center;
-  gap: 0 10px;
+  gap: 30px 10px;
 
   padding: 30px;
 
   @media (min-width: 1000px) {
     --columns: 4;
   }
+
+  &__item {
+    position: relative;
+  }
 }
 
 .person {
   width: 220px;
-  padding: 10px 10px 16px;
+  padding: 10px 10px 0;
   border-radius: 10px;
-  margin-bottom: -15px;
 
-  //border: 1px dashed black;
-
+  transform-origin: center 220px;
   transition: transform 1s;
 
   &:hover {
+    position: absolute;
     z-index: 1;
 
     background-color: #EEE;
@@ -96,7 +99,6 @@ html {
 
   &__name {
     display: block;
-    margin-bottom: 9px;
 
     text-align: center;
     color: #2F4F4F;
@@ -105,16 +107,18 @@ html {
   }
 
   &__extra {
-    visibility: hidden;
+    display: none;
+    padding: 9px 0 16px;
 
     color: #000;
+    background-color: #EEE;
 
     text-align: center;
     font-size: 18px;
     font-weight: 400;
 
     .person:hover & {
-      visibility: visible;
+      display: block;
     }
   }
 
